@@ -1,6 +1,7 @@
 import csv
 import matplotlib.pyplot as plt
 
+
 from collections import Counter
 
 nSkips = 3
@@ -22,6 +23,26 @@ with open("sofia-questionaire.csv") as fp:
             stats[language] += 1
 
 
+def plotSummary():
+    languages = []
+    counts = []
+    fig, ax = plt.subplots()
+
+    for language in sorted(stats):
+        count = stats[language]
+        languages.append(language.title())
+        counts.append(count)
+
+    ax.bar(languages, counts)
+
+    ax.set_ylabel('Count')
+    ax.set_title('Students first language')
+    # ax.legend(title='Language')
+    plt.xticks(rotation=31)
+
+    plt.savefig("student-languages.pdf")
+
+
 def printSummary():
     total = stats.total()
     for language in stats:
@@ -33,3 +54,4 @@ def printSummary():
 
 
 printSummary()
+plotSummary()
