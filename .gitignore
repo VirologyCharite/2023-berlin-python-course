@@ -1,2 +1,4 @@
 admin/people.txt
 admin/room-booking.pdf
+*~
+.mypy_cache
