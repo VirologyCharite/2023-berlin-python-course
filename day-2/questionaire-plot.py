@@ -2,13 +2,14 @@ import csv
 from collections import Counter
 import matplotlib.pyplot as plt
 
-nSkips = 3
-skipCount = 0
 stats = Counter()
 
 
 with open("sofia-questionaire.csv") as fp:
     reader = csv.reader(fp)
+
+    nSkips = 3
+    skipCount = 0
 
     while skipCount < nSkips:
         next(reader)
@@ -19,6 +20,8 @@ with open("sofia-questionaire.csv") as fp:
         if language1 and language1 != "n/a":
             language, level = language1.split()
             stats[language] += 1
+        # else:
+        #     print(f"Ignoring value {language1!r}.")
 
 
 def printSummary():
@@ -46,8 +49,8 @@ def plotSummary():
 
     ax.set_ylabel("Count")
     ax.set_title("Student first language counts")
-    plt.xticks(rotation=31)
 
+    plt.xticks(rotation=31)
     plt.savefig("student-languages.pdf")
 
 
