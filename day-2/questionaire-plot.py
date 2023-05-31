@@ -22,7 +22,7 @@ with open("sofia-questionaire.csv") as fp:
 
 
 def printSummary():
-    total = stats.total()
+    total = sum(stats.values())
     for language in stats:
         count = stats[language]
         pct = count / total * 100.0
