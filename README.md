@@ -197,3 +197,7 @@ control-c - interrupts program
 the date 100 years ago
 
 extract fasta - brian
+
+## Notes on using git
+
+On Wednesday we started to use git. Here are the notes.
