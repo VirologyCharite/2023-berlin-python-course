@@ -56,11 +56,18 @@ On unix systems files with names starting with a dot, ".", are hidden files.
 This is a convention that means many programs will ignore such files unless told not to.
 Eg `ls` will not show hidden files unless the `-a` option is specified, as in `ls -a`.
 
-## Background information on some things discussed in the course
-gitignore https://git-scm.com/docs/gitignore
+## Links Background information on some things discussed in the course
+### Git
+The [git book](https://git-scm.com) provides great and detailed explanations of git and its commands
+Related to the questions about gitignore the answer can be found at https://git-scm.com/docs/gitignore
 tldr; 
 - patterns that should always be ignored go into `$HOME/.gitconfig`
 - patterns that should be ignored for a single repo only on the local machine
   go into `<repo-dir>/.git/info/exclude`
 - patterns that are specific to the repo and should be used on all copies go into
   `.gitignore` in the repo dir and that file should be tracked by git
+
+### ssh
+A short but complete explanation of everything (though probably more) you will likely
+need to know about ssh can be found at http://www.unixwiz.net/techtips/ssh-agent-forwarding.html.
+With pictures!
