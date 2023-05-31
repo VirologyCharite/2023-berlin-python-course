@@ -71,3 +71,39 @@ tldr;
 A short but complete explanation of everything (though probably more) you will likely
 need to know about ssh can be found at http://www.unixwiz.net/techtips/ssh-agent-forwarding.html.
 With pictures!
+
+### Shell stuff
+[The missing semester of your CS education](https://missing.csail.mit.edu/) contains lots of useful
+tidbits about the shell and computers. Probably TMI but a nice place to start if you want to dive a bit
+deeper.
+The most useful thing in the whole course is probably the tool [tldr](https://github.com/tldr-pages/tldr#how-do-i-use-it)
+which will give you a short synopsis of command line tools.
+Eg if you don't remember how to use the `tr` command:
+```
+$ tldr tr                                                                          
+tr
+
+Translate characters: run replacements based on single characters and character sets.
+More information: https://www.gnu.org/software/coreutils/tr.
+
+ - Replace all occurrences of a character in a file, and print the result:
+   tr find_character replace_character < path/to/file
+
+ - Replace all occurrences of a character from another command's output:
+   echo text | tr find_character replace_character
+
+ - Map each character of the first set to the corresponding character of the second set:
+   tr 'abcd' 'jkmn' < path/to/file
+
+ - Delete all occurrences of the specified set of characters from the input:
+   tr -d 'input_characters' < path/to/file
+
+ - Compress a series of identical characters to a single character:
+   tr -s 'input_characters' < path/to/file
+
+ - Translate the contents of a file to upper-case:
+   tr "[:lower:]" "[:upper:]" < path/to/file
+
+ - Strip out non-printable characters from a file:
+   tr -cd "[:print:]" < path/to/file
+```
