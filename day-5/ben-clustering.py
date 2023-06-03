@@ -22,8 +22,23 @@ parser.add_argument(
 )
 
 parser.add_argument(
+    "--scatterPlotPrefix", default="scatter-",
+    help="The first part of the file name of the scatter plot (if any)."
+)
+
+parser.add_argument(
     "--output", "-o",
     help="The (Excel) filename to write the results to."
+)
+
+parser.add_argument(
+    "--col1",
+    help="The first column of the scatter plot"
+)
+
+parser.add_argument(
+    "--col2",
+    help="The second column of the scatter plot"
 )
 
 parser.add_argument(
@@ -52,13 +67,9 @@ df = pd.read_excel(args.input, sheet_name=args.sheet,
                    index_col=args.indexColumn)
 
 if args.cols:
-    # args.cols.insert(0, "category")
     df = df[args.cols]
 
 df.dropna(inplace=True)
-
-# print(df.to_string())
-
 
 if args.method == "dbscan":
     clustering = DBSCAN(eps=args.eps, min_samples=2)
@@ -71,8 +82,13 @@ clustering.fit(df)
 
 df["cluster"] = clustering.labels_
 
-print(f"BS says: There were {max(clustering.labels_) + 1} clusters.")
-print(f"TJ says: There were {len(set(clustering.labels_))} clusters.")
+print(f"There were {max(clustering.labels_) + 1} clusters.")
 
 if args.output:
     df.to_excel(args.output, sheet_name=args.sheet)
+
+if args.col1 and args.col2:
+    df.plot.scatter(args.col1, args.col2)
+    filename = f"{args.scatterPlotPrefix}{args.col1}-{args.col2}.pdf"
+    plt.savefig(filename)
+    print(f"Saved the scatter plot to {filename!r}.")
