@@ -6,3 +6,8 @@ day-2/student-languages.pdf
 day-3/snakemake_intro_2023/.snakemake
 day-3/snakemake_intro_2023/.idea
 .idea
+day-5/ben-data.xlsx
+.DS_Store
+admin/20230603-leo-form.pdf
+__pycache__
+.ipynb_checkpoints
